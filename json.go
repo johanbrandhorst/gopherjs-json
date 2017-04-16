@@ -2,10 +2,10 @@ package json
 
 import "github.com/gopherjs/gopherjs/js"
 
-// MarshalJSON uses the browser builtin JSON.stringify function
+// Marshal uses the browser builtin JSON.stringify function
 // and wraps it such that any exceptions thrown are returned
 // as errors.
-func MarshalJSON(o *js.Object) (res string, err error) {
+func Marshal(o *js.Object) (res string, err error) {
 	defer func() {
 		e := recover()
 
@@ -25,10 +25,10 @@ func MarshalJSON(o *js.Object) (res string, err error) {
 	return res, err
 }
 
-// UnmarshalJSON uses the browser builtin JSON.parse function
+// Unmarshal uses the browser builtin JSON.parse function
 // and wraps it such that any exceptions thrown are returned
 // as errors.
-func UnmarshalJSON(s string) (res *js.Object, err error) {
+func Unmarshal(s string) (res *js.Object, err error) {
 	defer func() {
 		e := recover()
 
